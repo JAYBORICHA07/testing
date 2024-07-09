@@ -36,7 +36,8 @@ app.setErrorHandler(function (error, _request, reply) {
 });
 
 app.register(cookiePlugin);
-app.register(fastifyJwt, { secret: env.JWT_SECRET });
+app.register(fastifyJwt, { secret: env.JWT_SECRET as string });
+// @ts-ignore
 app.register(oauthPlugin, {
   name: "googleOAuth2",
   scope: ["profile", "email"],

@@ -5,6 +5,7 @@ import { publicProcedure, router, protectedProcedure } from "./context.trpc";
 export const trpcRouter = router({
   user: protectedProcedure.query(async ({ ctx }) => {
     const user = ctx.user;
+    console.log("user", user);
     return user;
   }),
   version: publicProcedure.query(() => ({
